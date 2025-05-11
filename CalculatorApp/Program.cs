@@ -9,13 +9,37 @@ double GetNumber()
 while (true)
 {
     Console.WriteLine("Enter first number:");
-    double firstNumber = GetNumber();
+    double firstNumber = 0;
+    try
+    {
+        firstNumber = GetNumber();
+    }
+    catch
+    {
+        Console.WriteLine("Not a number.");
+        continue;
+    }
 
     Console.WriteLine("Choose the operator: +, -, *, /");
     string op = Console.ReadLine();
+    var operators = new string[] {"+", "-", "*", "/"};
+    if(!operators.Contains(op))
+    {
+        Console.WriteLine("Not a valid operator.");
+        continue;
+    }
 
     Console.WriteLine("Enter second number:");
-    double secondNumber = GetNumber();
+    double secondNumber = 0;
+    try
+    {
+        secondNumber = GetNumber();
+    }
+    catch
+    {
+        Console.WriteLine("Not a number.");
+        continue;
+    }
 
 
     double result = 0;
